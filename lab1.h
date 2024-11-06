@@ -3,5 +3,6 @@
 
 int type_check(const char* str, const int len);
 int order_check(const int* mass, const int len);
+int get_ans(const int a, const char sign, const int b);
 
 #endif

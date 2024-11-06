@@ -75,3 +75,28 @@ int order_check(const int* mass, const int len) // if in right order returns num
     }
     return c;
 }
+
+int get_ans(const int a, const char sign, const int b) // return answer
+{
+    if (sign == '+')
+    {
+        return a + b;
+    }
+    else if (sign == '-')
+    {
+        return a - b;
+    }
+    else if (sign == '*')
+    {
+        return a * b;
+    }
+    else if (sign == '%')
+    {
+        if (b == 0)
+        {
+            return 0;
+        }
+        return a % b;
+    }
+    return 0;
+}
