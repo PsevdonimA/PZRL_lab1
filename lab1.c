@@ -50,3 +50,28 @@ int type_check(const char* str, const int len) // 0-unknown 1-number 2-sign 3-fl
     }
     return 0;
 }
+
+int order_check(const int* mass, const int len) // if in right order returns number of answers, else return -1 
+{
+    if (len < 2 || ((len - 2) % 3 != 0))
+    {
+        return -1;   
+    }
+    if (mass[len-2] != 3 || mass[len-1] != 1)
+    {
+        return -1;
+    }
+    int c = 0; // counter
+    for (int i = 0; i < len - 2; i += 3)
+    {
+        if (mass[i] == 1 && mass[i+1] == 2 && mass[i+2] == 1)
+        {
+            c += 1;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+    return c;
+}
