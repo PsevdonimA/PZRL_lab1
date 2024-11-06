@@ -1,4 +1,5 @@
 #include "lab1.h"
+#include <stdio.h>
 
 const char signs[4] = {'+', '-', '*', '%'};
 const char numbs[10] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -99,4 +100,23 @@ int get_ans(const int a, const char sign, const int b) // return answer
         return a % b;
     }
     return 0;
+}
+
+void print_result(const int* mass, const int len, const int key) // print result string
+{
+    int ch_num = 0; // number of char in ascii
+    printf("Результирующая строка: ");
+    for (int i = 0; i < len; i++)
+    {
+        ch_num = mass[i] - key;
+        if (ch_num >= 0 && ch_num <= 255)
+        {
+            printf("%c", (char)ch_num);
+        }
+        else
+        {
+            printf(" ");
+        }
+    }
+    printf("\n");
 }

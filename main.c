@@ -36,28 +36,8 @@ int main(int argc, char** argv)
             ans_arr[i] = get_ans(atoi(argv[pos]), argv[pos+1][0], atoi(argv[pos+2]));
             printf("Ответ №%d: %d\n", i+1, ans_arr[i]);
         }
-        char* result = (char*)malloc(ans_len * sizeof(char)); // result string
-        int ch_num = 0; // int value of char
-        for (int i = 0; i < ans_len; i++)
-        {
-            ch_num = ans_arr[i] - key;
-            if (ch_num >= 0 && ch_num <= 255)
-            {
-                result[i] = (char)ch_num;
-            }
-            else
-            {
-                result[i] = ' ';
-            }
-        }
-        printf("Результирующая строка: ");
-        for (int i = 0; i < ans_len; i++)
-        {
-            printf("%c", result[i]);
-        }
-        printf("\n");
-        free(result);
-        free(ans_arr);   
+        print_result(ans_arr, ans_len, key);
+        free(ans_arr);
     }
     free(types);
     return 0;
