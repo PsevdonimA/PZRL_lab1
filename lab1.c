@@ -7,7 +7,12 @@ const char numbs[10] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 int number_check(const char* str, const int len) // 0 - not number   1 - is number
 {
     int next = 0; // ready to check next symbol
-    for (int i = 0; i < len; i++)
+    int start_p = 0;
+    if (len > 1 && str[0] == '-')
+    {
+        start_p = 1;
+    }
+    for (int i = start_p; i < len; i++)
     {
         next = 0;
         for (int j = 0; j < 10; j++)

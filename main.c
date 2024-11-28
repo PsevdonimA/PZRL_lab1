@@ -7,6 +7,11 @@ int main(int argc, char** argv)
 {
     int arg_len = argc - 1; // number of useful arguments
     int* types = (int*)malloc(arg_len * sizeof(int)); // array of types for arguments
+    if (types == NULL)
+    {
+        printf("Memory allocation error!\n");
+        return 1;
+    }
 
     int len = 0; // buffer
     for (int i = 0; i < arg_len; i++)
@@ -29,6 +34,12 @@ int main(int argc, char** argv)
     {
         int key = atoi(argv[arg_len]);
         int* ans_arr = (int*)malloc(ans_len * sizeof(int));
+        if (ans_arr == NULL)
+        {
+            printf("Memory allocation error!\n");
+            free(types);
+            return 1;
+        }
         int pos = 0; // position of index
         for (int i = 0; i < ans_len; i++)
         {
